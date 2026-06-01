@@ -1,14 +1,11 @@
 -- Services --
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 
--- Variables --
-local System = ReplicatedStorage:WaitForChild('AnnouncementSystem')
-
 -- Required --
-local AnnouncementSystem = require(System)
+local AnnouncementSystem = require(ReplicatedStorage:WaitForChild('AnnouncementSystem'))
 
 return function (context, message : string)
-	task.defer(AnnouncementSystem, context.Executor, message)
+	task.defer(AnnouncementSystem.Announce, context.Executor, message)
 	
 	return (`Successfully sent message`)
 end

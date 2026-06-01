@@ -1,3 +1,3 @@
-
+export type Callback = () -> ()
 
 return {}
