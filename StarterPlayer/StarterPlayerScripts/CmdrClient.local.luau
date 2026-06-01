@@ -14,7 +14,7 @@ local Settings = require(Module.Settings)
 local function Start()
 	if not table.find(Settings.Admins, Players.LocalPlayer.UserId) then return end
 
-	Cmdr:SetActivationKeys({ Enum.KeyCode.X })
+	Cmdr:SetActivationKeys({ Enum.KeyCode.F2 })
 end
 
 Start()

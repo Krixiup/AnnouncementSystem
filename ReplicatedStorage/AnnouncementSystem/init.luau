@@ -17,11 +17,9 @@ local AnnouncementSystem = {}
 -- Public Functions --
 function AnnouncementSystem.Announce(player : Player, message : string)
     local PlayerName = player.DisplayName
-    local PlayerColour = NameColour.GetNameColor(PlayerName)
-    print(PlayerColour)
-    PlayerColour = PlayerColour:ToHex()
+    local PlayerColour = NameColour.GetNameColor(PlayerName):ToHex()
 
-    local FormattedMessage = `<font color="#{PlayerColour}">{ PlayerName }</font>{ utf8.char(0xE000) }: { message }`
+    local FormattedMessage = `<font color="#{ PlayerColour }">{ PlayerName }</font>{ utf8.char(0xE000) }: { message }`
 
 	MessagingService:PublishAsync('GlobalAnnouncement', FormattedMessage)
 end

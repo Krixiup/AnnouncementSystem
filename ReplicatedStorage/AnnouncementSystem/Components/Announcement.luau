@@ -19,7 +19,7 @@ type Callback = Types.Callback
 local Announcement = {}
 
 function Announcement.Display(message : string, callback : Callback?)
-    if not Settings.Canvas then return end
+    if not Settings.CanvasLocation then return end
 
     local Cloned = _Trove:Clone(AnnouncementCanvas)
     Cloned.GroupTransparency = 1
@@ -27,7 +27,7 @@ function Announcement.Display(message : string, callback : Callback?)
     local MessageLabel = Cloned.MessageLabel
     MessageLabel.Text = message
     
-    Cloned.Parent = Settings.Canvas
+    Cloned.Parent = Settings.CanvasLocation
 
     task.delay(Settings.AnnouncementDuration, function()
         local Tween = _Trove:Add(TweenService:Create(Cloned, Settings.AnnouncementDownInfo, {GroupTransparency = 1}))
