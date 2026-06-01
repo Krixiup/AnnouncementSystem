@@ -2,7 +2,7 @@
 
 Thank you for using my system! I hope you are able to incorporate
 it into your game(s) easily. If you ever have any troubles or
-suggestions, feel free to make a post in the discord :)
+suggestions, feel free to make a post in my discord :)
 - Krixiup (discord.gg/YT5jfhtUn8)
 
 Credits:
