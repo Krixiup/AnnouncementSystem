@@ -1,3 +1,9 @@
+--[[
+
+    PLEASE OPEN THE SETTINGS FOR ALL THE INFO REGARDING THIS SYSTEM
+
+]]
+
 -- Services --
 local MessagingService = game:GetService('MessagingService')
 
