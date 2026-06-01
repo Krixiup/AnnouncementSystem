@@ -12,14 +12,14 @@ return {
 
 	-- Tween Infos --
 	AnnouncementUpInfo = TweenInfo.new(
-		0.25,
-		Enum.EasingStyle.Back,
+		0.2,
+		Enum.EasingStyle.Sine,
 		Enum.EasingDirection.Out
 	),
 
 	AnnouncementDownInfo = TweenInfo.new(
-		0.25,
-		Enum.EasingStyle.Back,
-		Enum.EasingDirection.InOut
+		0.2,
+		Enum.EasingStyle.Sine,
+		Enum.EasingDirection.In
 	),
 }
