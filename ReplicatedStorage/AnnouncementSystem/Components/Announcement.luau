@@ -1,8 +1,12 @@
 -- Services --
 local CollectionService = game:GetService('CollectionService')
 local TweenService = game:GetService('TweenService')
+local Players = game:GetService('Players')
 
 -- Variables --
+local Player = Players.LocalPlayer
+local PlayerUI = Player:WaitForChild('PlayerGui')
+
 local Assets = script.Parent.Parent.Assets
 local AnnouncementTemplate = Assets.AnnouncementTemplate
 
@@ -19,9 +23,26 @@ type Callback = Types.Callback
 -- Main --
 local Announcement = {}
 
+-- Private Functions --
+local function CheckOwnership(instance : Instance)
+	return instance:IsDescendantOf(PlayerUI)
+end
+
+-- Public Functions --
 function Announcement.Display(message : string, callback : Callback?)
 	local CanvasLocation = CollectionService:GetTagged('AnnouncementCanvas')
-    if not CanvasLocation then return end
+	assert(CanvasLocation)
+	
+	local Canvas
+	for _, canvas in CanvasLocation do
+		if not CheckOwnership(canvas) then continue end
+		
+		Canvas = canvas
+		
+		break
+	end
+	
+	assert(Canvas)
 
     local Cloned = _Trove:Clone(AnnouncementTemplate)
     Cloned.GroupTransparency = 1
@@ -29,7 +50,7 @@ function Announcement.Display(message : string, callback : Callback?)
     local MessageLabel = Cloned.MessageLabel
     MessageLabel.Text = message
     
-	Cloned.Parent = CanvasLocation[1]
+	Cloned.Parent = Canvas
 
     task.delay(Settings.AnnouncementDuration, function()
         local Tween = _Trove:Add(TweenService:Create(Cloned, Settings.AnnouncementDownInfo, {GroupTransparency = 1}))
