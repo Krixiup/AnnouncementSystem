@@ -1,9 +1,10 @@
 -- Services --
+local CollectionService = game:GetService('CollectionService')
 local TweenService = game:GetService('TweenService')
 
 -- Variables --
 local Assets = script.Parent.Parent.Assets
-local AnnouncementCanvas = Assets.AnnouncementCanvas
+local AnnouncementTemplate = Assets.AnnouncementTemplate
 
 -- Required --
 local Settings = require('../Settings')
@@ -19,15 +20,16 @@ type Callback = Types.Callback
 local Announcement = {}
 
 function Announcement.Display(message : string, callback : Callback?)
-    if not Settings.CanvasLocation then return end
+	local CanvasLocation = CollectionService:GetTagged('AnnouncementCanvas')
+    if not CanvasLocation then return end
 
-    local Cloned = _Trove:Clone(AnnouncementCanvas)
+    local Cloned = _Trove:Clone(AnnouncementTemplate)
     Cloned.GroupTransparency = 1
 
     local MessageLabel = Cloned.MessageLabel
     MessageLabel.Text = message
     
-    Cloned.Parent = Settings.CanvasLocation
+	Cloned.Parent = CanvasLocation
 
     task.delay(Settings.AnnouncementDuration, function()
         local Tween = _Trove:Add(TweenService:Create(Cloned, Settings.AnnouncementDownInfo, {GroupTransparency = 1}))
