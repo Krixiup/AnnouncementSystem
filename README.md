@@ -12,7 +12,6 @@ Credits:
 
 Setup:
   1. Put user ids in the Admins table, allows them to access the announcement command.
-  2. Put the CanvasLocation to the location of your Announcements canvas (Works by default, change if you adjust the location of the Canvas).
-  3. The rest of the settings are optional, you can adjust everything to your likings.
+  2. The rest of the settings are optional, you can adjust everything to your likings.
 
 Enjoy!
