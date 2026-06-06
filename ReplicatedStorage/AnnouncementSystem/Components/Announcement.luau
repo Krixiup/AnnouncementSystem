@@ -24,7 +24,7 @@ type Callback = Types.Callback
 local Announcement = {}
 
 -- Private Functions --
-local function CheckOwnership(instance : Instance)
+local function CheckOwnership(instance : Instance) : boolean
 	return instance:IsDescendantOf(PlayerUI)
 end
 
