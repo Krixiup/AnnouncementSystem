@@ -29,7 +29,7 @@ function Announcement.Display(message : string, callback : Callback?)
     local MessageLabel = Cloned.MessageLabel
     MessageLabel.Text = message
     
-	Cloned.Parent = CanvasLocation
+	Cloned.Parent = CanvasLocation[1]
 
     task.delay(Settings.AnnouncementDuration, function()
         local Tween = _Trove:Add(TweenService:Create(Cloned, Settings.AnnouncementDownInfo, {GroupTransparency = 1}))
